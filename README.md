@@ -1,3 +1,10 @@
+# Desafio 03 - Trabalho em Grupo
+
+**Curso:** Automação de Testes com Julio de Lima  
+**Atividade:** Desafio 03 desenvolvido em grupo
+
+---
+
 # API de Transferências e Usuários
 
 Esta API permite o registro, login, consulta de usuários e transferências de valores entre usuários. O objetivo é servir de base para estudos de testes e automação de APIs.

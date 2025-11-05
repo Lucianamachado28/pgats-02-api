@@ -133,7 +133,9 @@ Caso não esteja, siga as instruções em: <https://k6.io/docs/get-started/insta
 
 #### 1. Clonar o Repositório
 ```bash
-git clone git clone https://github.com/ilanaalc/pgats-02-api.git
+git clone https://github.com/Lucianamachado28/pgats-02-api
+cd pgats-02-api
+
 cd pgats-02-api
 
 cd pgats-02-api

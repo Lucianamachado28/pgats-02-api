@@ -4,7 +4,7 @@
 Testes Funcionais e de Performance em API REST e GraphQL
 
 
-   Sobre o Projeto     
+   ## Sobre o Projeto     
 
 Projeto focado na implementação de testes automatizados funcionais e não funcionais em uma API bancária simulada, utilizando boas práticas de organização e estrutura de testes.
 
@@ -13,7 +13,7 @@ O sistema permite cadastro de usuários, autenticação via JWT e transferência
 O foco principal deste repositório é a validação da qualidade da API.
 
 
-  Objetivo como QA
+   ## Objetivo como QA
   
 Neste projeto foram aplicados:
 
@@ -30,7 +30,7 @@ Testes de performance com k6
 Organização modular de suites de teste
 
 
-  Tecnologias Utilizadas
+  ## Tecnologias Utilizadas
 
 Node.js
 
@@ -47,7 +47,7 @@ JWT
 Dotenv
 
 
-  Estrutura dos Testes
+   ## Estrutura dos Testes
   
 test/                → Testes funcionais REST (Supertest)
 performance-tests/   → Testes de performance (k6)
@@ -56,7 +56,7 @@ helpers/             → Funções reutilizáveis (ex: login)
 config/              → Configurações
 
 
-  Principais Cenários Validados
+  ## Principais Cenários Validados
   
 Registro de Usuário
 
@@ -64,7 +64,7 @@ Registro de Usuário
 
   Valida campos obrigatórios
 
-Login
+  ## Login
 
   Valida autenticação correta
   
@@ -72,7 +72,7 @@ Login
 
   Geração de token JWT
 
-Transferências
+  ## Transferências
 
   Validação de saldo
 
@@ -83,7 +83,7 @@ Transferências
   Testes negativos
 
 
-  Testes de Performance
+  ## Testes de Performance
 
 Testes realizados com k6 para avaliar:
 
@@ -97,7 +97,7 @@ Execução:
 
 k6 run performance-tests/nome_do_teste.js -e BASE_URL=http://localhost:3000
 
-  Execução
+  ## Execução
 
 1️⃣ Instalar dependências
 
@@ -114,8 +114,7 @@ BASE_URL=http://localhost:3000
 npm test
 
 
-
-Luciana de Souza Machado
+  ## Luciana de Souza Machado
 Pós-graduanda em Engenharia de Software
 Mentoria em Testes de Software – Júlio de Lima
 Transição para Qualidade de Software (QA)

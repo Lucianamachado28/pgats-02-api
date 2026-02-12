@@ -59,7 +59,8 @@ cd pgats-02-api
 ```bash
 npm install
 ```
- ###Configuração
+
+ ### Configuração
 
 Crie um arquivo .env na raiz do projeto:
 
@@ -84,4 +85,3 @@ k6 run performance-tests/nome_do_teste.js -e BASE_URL=http://localhost:3000
 ```bash
 K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=html-report.html k6 run performance-tests/nome_do_teste.js -e BASE_URL=http://localhost:3000
 ```
-### Contato

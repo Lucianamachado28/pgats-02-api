@@ -3,7 +3,8 @@ PGATS-02-API
 
 Testes Funcionais e de Performance em API REST e GraphQL
 
-  Sobre o Projeto     
+
+   Sobre o Projeto     
 
 Projeto focado na implementação de testes automatizados funcionais e não funcionais em uma API bancária simulada, utilizando boas práticas de organização e estrutura de testes.
 
@@ -11,8 +12,9 @@ O sistema permite cadastro de usuários, autenticação via JWT e transferência
 
 O foco principal deste repositório é a validação da qualidade da API.
 
-  Objetivo como QA
 
+  Objetivo como QA
+  
 Neste projeto foram aplicados:
 
 Testes funcionais de endpoints REST
@@ -26,6 +28,7 @@ Testes positivos e negativos
 Testes de performance com k6
 
 Organização modular de suites de teste
+
 
   Tecnologias Utilizadas
 
@@ -43,37 +46,42 @@ JWT
 
 Dotenv
 
+
   Estrutura dos Testes
+  
 test/                → Testes funcionais REST (Supertest)
 performance-tests/   → Testes de performance (k6)
 fixtures/            → Massa de dados
 helpers/             → Funções reutilizáveis (ex: login)
 config/              → Configurações
 
+
   Principais Cenários Validados
+  
 Registro de Usuário
 
-Impede usuários duplicados
+  Impede usuários duplicados
 
-Valida campos obrigatórios
+  Valida campos obrigatórios
 
 Login
 
-Valida autenticação correta
+  Valida autenticação correta
+  
+  Bloqueia credenciais inválidas
 
-Bloqueia credenciais inválidas
-
-Geração de token JWT
+  Geração de token JWT
 
 Transferências
 
-Validação de saldo
+  Validação de saldo
 
-Restrição para valores acima de R$ 5.000
+  Restrição para valores acima de R$ 5.000
 
-Testes de fluxo completo
+  Testes de fluxo completo
 
-Testes negativos
+  Testes negativos
+
 
   Testes de Performance
 

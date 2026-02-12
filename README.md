@@ -1,4 +1,4 @@
-     PGATS-02-API
+PGATS-02-API
 
 Testes Funcionais e de Performance em API REST e GraphQL
   Sobre o Projeto     

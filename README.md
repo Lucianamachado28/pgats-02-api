@@ -1,197 +1,110 @@
-# Desafio 03 - Trabalho em Grupo
+PGATS-02-API
+Testes Funcionais e de Performance em API REST e GraphQL
+  Sobre o Projeto
 
-**Curso:** Automação de Testes com Julio de Lima  
-**Atividade:** Desafio 03 desenvolvido em grupo
+Projeto focado na implementação de testes automatizados funcionais e não funcionais em uma API bancária simulada, utilizando boas práticas de organização e estrutura de testes.
 
----
+O sistema permite cadastro de usuários, autenticação via JWT e transferências financeiras entre contas.
 
-# API de Transferências e Usuários
+O foco principal deste repositório é a validação da qualidade da API.
 
-Esta API permite o registro, login, consulta de usuários e transferências de valores entre usuários. O objetivo é servir de base para estudos de testes e automação de APIs.
+  Objetivo como QA
 
-## Tecnologias
-- Node.js
-- Express
-- Swagger (documentação)
-- Banco de dados em memória (variáveis)
+Neste projeto foram aplicados:
 
-## Instalação
+Testes funcionais de endpoints REST
 
-1. Clone o repositório:
-   ```sh
-   git clone <repo-url>
-   cd pgats-02-api
-   ```
-2. Instale as dependências:
-   ```sh
-   npm install express swagger-ui-express bcryptjs
-   ```
+Testes de autenticação JWT
 
-## Configuração
+Validação de regras de negócio
 
-Antes de seguir, crie um arquivo .env na pasta raiz contendo as propriedades BASE_URL_REST E BASE_URL_GRAPHQL, com a URL desses serviços.
+Testes positivos e negativos
 
-## Como rodar
+Testes de performance com k6
 
-- Para iniciar o servidor:
-  ```sh
-  node server.js
-  ```
-- A API estará disponível em `http://localhost:3000`
-- A documentação Swagger estará em `http://localhost:3000/api-docs`
+Organização modular de suites de teste
 
-## Endpoints principais
+  Tecnologias Utilizadas
 
-### Registro de usuário
-- `POST /users/register`
-  - Body: `{ "username": "string", "password": "string", "favorecidos": ["string"] }`
+Node.js
 
-### Login
-- `POST /users/login`
-  - Body: `{ "username": "string", "password": "string" }`
+Express
 
-### Listar usuários
-- `GET /users`
+Swagger
 
-### Transferências
-- `POST /transfers`
-  - Body: `{ "from": "string", "to": "string", "value": number }`
-- `GET /transfers`
+Supertest (testes funcionais)
 
-### GraphQL Types, Queries e Mutations
+k6 (testes de performance)
 
-Rode `npm run start-graphql` para executar a API do GraphQL e acesse a URL http://localhost:4000/graphql para acessá-la.
+JWT
 
-- **Types:**
-  - `User`: username, favorecidos, saldo
-  - `Transfer`: from, to, value, date
-- **Queries:**
-  - `users`: lista todos os usuários
-  - `transfers`: lista todas as transferências (requer autenticação JWT)
-- **Mutations:**
-  - `registerUser(username, password, favorecidos)`: retorna User
-  - `loginUser(username, password)`: retorna token + User
-  - `createTransfer(from, to, value)`: retorna Transfer (requer autenticação JWT)
+Dotenv
 
-## Regras de negócio
-- Não é permitido registrar usuários duplicados.
-- Login exige usuário e senha.
-- Transferências acima de R$ 5.000,00 só podem ser feitas para favorecidos.
-- O saldo inicial de cada usuário é de R$ 10.000,00.
+  Estrutura dos Testes
+test/                → Testes funcionais REST (Supertest)
+performance-tests/   → Testes de performance (k6)
+fixtures/            → Massa de dados
+helpers/             → Funções reutilizáveis (ex: login)
+config/              → Configurações
 
-## Testes
-- O arquivo `app.js` pode ser importado em ferramentas de teste como Supertest.
-- Para testar a API GraphQL, importe `graphql/app.js` nos testes.
+  Principais Cenários Validados
+Registro de Usuário
 
-Para dúvidas, consulte a documentação Swagger, GraphQL Playground ou o código-fonte.
----
+Impede usuários duplicados
 
-# 🔍 pgats-02-api - Testes de API e Performance
+Valida campos obrigatórios
 
-## 🤖 Testes de API e Performance
+Login
 
-Esta seção descreve a estrutura, as tecnologias e o modo de execução dos testes da API Rest (Supertest) e de performance (k6) adicionados a este repositório.
+Valida autenticação correta
 
----
+Bloqueia credenciais inválidas
 
-### Introdução dos Testes
+Geração de token JWT
 
-Este projeto contém um conjunto de testes de **API REST** utilizando a biblioteca **Supertest** e testes de **Performance** com o **k6**. O objetivo é realizar testes funcionais da API e também não funcionais sob diferentes cargas. A estrutura de testes foi implementada como um incremento (*fork*) a uma API Node.js já existente.
+Transferências
 
----
+Validação de saldo
 
-### 💻 Tecnologias Utilizadas
+Restrição para valores acima de R$ 5.000
 
-| Categoria | Tecnologia | Uso |
-| :--- | :--- | :--- |
-| Teste Funcional | **Supertest** | Execução de requisições HTTP e validação de *endpoints* da API. |
-| Teste de Performance | **k6 (Javascript)** | Simulação de carga para avaliação de desempenho da API. |
-| Auxiliares | **Dotenv** | Gerenciamento de variáveis de ambiente. |
+Testes de fluxo completo
 
----
+Testes negativos
 
-### 📂 Estrutura de Pastas e Objetivo dos Arquivos
+  Testes de Performance
 
-A seguir, a descrição das pastas adicionadas para a execução dos testes:
+Testes realizados com k6 para avaliar:
 
-| Pasta | Objetivo Principal |
-| :--- | :--- |
-| **`config`** | Arquivo de configuração de variáveis de ambiente para o k6. |
-| **`fixtures`** | Contém **dados estáticos** (*payloads*, dados de entrada, massas de teste) necessários para os testes de API. |
-| **`helpers`** | Contém **funções reutilizáveis** que simplificam a escrita dos testes, como a função de realizar login. |
-| **`test`** | Contém os **testes funcionais da API** escritos com **Supertest**. |
-| **`performance-tests`** | Contém os **scripts de teste de performance** escritos em JavaScript para o **k6**. |
-| **`utils`** | Armazenar **utilitários gerais** que podem ser usados por diversas partes do projeto. |
+Tempo médio de resposta
 
----
+Taxa de falhas
 
-### 🛠️ Instalação e Configuração
+Comportamento sob carga simultânea
 
-#### Pré-requisitos
-Certifique-se de ter o **Node.js**, **npm** e o **k6** instalados em sua máquina.
-Caso não esteja, siga as instruções em: <https://k6.io/docs/get-started/installation/>
+Execução:
 
-#### 1. Clonar o Repositório
-```bash
-git clone https://github.com/Lucianamachado28/pgats-02-api
-cd pgats-02-api
+k6 run performance-tests/nome_do_teste.js -e BASE_URL=http://localhost:3000
 
-cd pgats-02-api
+  Execução
 
-cd pgats-02-api
+1️⃣ Instalar dependências
 
-```
-
----
-
-## 2. Instalar as Dependências
-
-```bash
 npm install
-```
 
----
 
-## 3. Configurar Variáveis de Ambiente
+2️⃣ Criar .env
 
-Crie um arquivo chamado `.env` na raiz do projeto e adicione a variável `BASE_URL` que será usada pelo **Supertest**:
+BASE_URL=http://localhost:3000
 
-```env
-BASE_URL="http://localhost:3000" 
-```
 
----
+3️⃣ Rodar testes funcionais
 
-## 🚀 Execução dos Testes
-
-### 1. Execução dos Testes Funcionais (Supertest)
-
-Para executar os testes de API, use o comando `npm test`.  
-Certifique-se de que a API de destino esteja em execução e a variável `BASE_URL` esteja configurada no arquivo `.env`.
-
-```bash
 npm test
-```
 
----
 
-### 2. Execução dos Testes de Performance (k6)
 
-O **k6** requer que a variável de ambiente `BASE_URL` seja passada no comando para saber qual API testar.
-
-**Exemplo de execução básica:**
-
-```bash
-k6 run performance-tests/nome_do_teste.test.js -e BASE_URL=http://localhost:3000
-```
-
----
-
-### 3. Execução do k6 com Relatório em Tempo Real e Exportação
-
-Para monitorar o desempenho em um **dashboard web em tempo real** e exportar um **relatório HTML** automaticamente, utilize as variáveis de ambiente do próprio k6 conforme o exemplo:
-
-```bash
-K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=html-report.html k6 run performance-tests/nome_do_teste.test.js -e BASE_URL=http://localhost:3000
-```
-
+Luciana de Souza Machado
+Pós-graduanda em Engenharia de Software
+Mentoria em Testes de Software – Júlio de Lima
+Transição para Qualidade de Software (QA)

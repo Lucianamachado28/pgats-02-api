@@ -1,6 +1,8 @@
 PGATS-02-API
 
+
 Testes Funcionais e de Performance em API REST e GraphQL
+
   Sobre o Projeto     
 
 Projeto focado na implementação de testes automatizados funcionais e não funcionais em uma API bancária simulada, utilizando boas práticas de organização e estrutura de testes.
